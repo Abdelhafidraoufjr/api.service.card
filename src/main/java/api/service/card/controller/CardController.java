@@ -16,6 +16,11 @@ public class CardController {
     @Autowired
     private CardService cardService;
 
+    @GetMapping("/health")
+    public ResponseEntity<String> healthCheck() {
+        return ResponseEntity.ok("Cards API is up and running");
+    }
+
     @Operation(summary = "Create a new card", description = "Creates a new bank card")
     @PostMapping
     public ResponseEntity<Card> createCard(@RequestBody Card card) {
